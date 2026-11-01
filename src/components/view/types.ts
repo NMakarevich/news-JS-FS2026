@@ -24,3 +24,5 @@ export type NewsResult = {
     totalResults: number;
     articles: Article[];
 };
+
+export type NormalizedSources = { [letter: string]: Source[] };
