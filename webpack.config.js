@@ -33,7 +33,6 @@ const baseConfig = {
         path: path.resolve(__dirname, './dist'),
     },
     plugins: [
-        new DotenvWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
@@ -46,5 +45,8 @@ export default ({ mode }) => {
     const isProductionMode = mode === 'prod';
     const envConfig = isProductionMode ? prodConfig : devConfig;
 
-    return merge(baseConfig, envConfig);
+    return merge(
+        { ...baseConfig, plugins: [...baseConfig.plugins, new DotenvWebpackPlugin({ path: `./.env.${mode}` })] },
+        envConfig
+    );
 };
