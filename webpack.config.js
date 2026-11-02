@@ -19,6 +19,17 @@ const baseConfig = {
                 use: ['style-loader', 'css-loader'],
             },
             {
+                test: /\.html$/i,
+                loader: 'html-loader', // Finds asset paths in HTML
+            },
+            {
+                test: /\.svg/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[name][ext][query]',
+                },
+            },
+            {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
