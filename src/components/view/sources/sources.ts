@@ -6,10 +6,12 @@ class Sources {
     paginationContainer = document.querySelector('.pagination');
 
     private currentLetter = '';
+    private currentSource = '';
     private normalizedData: NormalizedSources = {};
 
     constructor() {
         this.handlePagination();
+        this.handleSelectSource();
     }
 
     get paginatedData() {
@@ -66,7 +68,7 @@ class Sources {
 
     private handlePagination = () => {
         if (!this.paginationContainer) return;
-        this.paginationContainer.addEventListener('click', (event) => {
+        this.paginationContainer.addEventListener('click', (event: Event) => {
             const target = event.target as HTMLElement;
             if (target && target.classList.contains('source__item')) {
                 const letter = target.dataset.letter;
@@ -80,6 +82,22 @@ class Sources {
                         this.draw();
                     }
                 }
+            }
+        });
+    };
+
+    handleSelectSource = () => {
+        if (!this.sourcesContainer) return;
+        this.sourcesContainer.addEventListener('click', (event: Event) => {
+            const target = event.target as HTMLElement;
+            if (target && target.classList.contains('source__item')) {
+                if (this.currentSource) {
+                    this.sourcesContainer
+                        ?.querySelector(`[data-source-id=${this.currentSource}]`)
+                        ?.classList.remove('active');
+                }
+                target.classList.add('active');
+                this.currentSource = target.getAttribute('data-source-id') ?? '';
             }
         });
     };

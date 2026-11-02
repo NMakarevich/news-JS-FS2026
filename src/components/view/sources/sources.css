@@ -14,13 +14,9 @@
     justify-content: center;
 }
 
-.pagination .source__item.active {
+.source__item.active {
     border-color: #3fcc59;
     color: #3fcc59;
-}
-
-.pagination .source__item-name {
-    pointer-events: none;
 }
 
 .source__item {
@@ -46,4 +42,5 @@
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
+    pointer-events: none;
 }
