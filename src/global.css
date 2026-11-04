@@ -1,4 +1,11 @@
+html {
+    height: 100%;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
@@ -13,23 +20,37 @@ header h1 {
     font-weight: 800;
 }
 
+main {
+    flex: 1;
+}
+
 footer {
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 1920px;
+    width: 100%;
 }
-footer .copyright a {
+
+footer,
+footer a {
     color: #444;
+    text-decoration: none;
 }
-footer .copyright a:hover {
+
+footer a img {
+    width: 32px;
+    height: 32px;
+}
+
+footer a:hover {
     color: #555;
-}
-footer .copyright:before {
-    content: '©';
 }
