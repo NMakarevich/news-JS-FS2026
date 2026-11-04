@@ -42,7 +42,6 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/news-JS-FS2026/',
     },
     plugins: [
         new HtmlWebpackPlugin({
